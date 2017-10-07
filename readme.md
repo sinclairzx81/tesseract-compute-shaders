@@ -1,6 +1,6 @@
 # tesseract-compute-shaders
 
-gpgpu compute shaders using tesseract
+gpgpu compute shaders using tesseract. [demo](https://sinclairzx81.github.io/tesseract-compute-shaders/)
 
 ### overview
 
