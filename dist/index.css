@@ -1,0 +1,67 @@
+/** fonts */
+@font-face {
+  font-family: neuropol;
+  src: url(./fonts/nasalization-rg.ttf);
+}
+html {
+  scrollbar-face-color: #646464;
+  scrollbar-base-color: #646464;
+  scrollbar-3dlight-color: #646464;
+  scrollbar-highlight-color: #646464;
+  scrollbar-track-color: #000;
+  scrollbar-arrow-color: #000;
+  scrollbar-shadow-color: #646464;
+  scrollbar-dark-shadow-color: #646464;
+}
+
+::-webkit-scrollbar { width: 16px; height:16px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: #000;}
+::-webkit-scrollbar-thumb { background-color: #666; }
+
+::-webkit-resizer { background-color: #666;}
+
+/** html document selector */
+* { margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; }
+
+/** micro css framework */
+.container { width: 100%; height: 100%; }
+.row       { width: 100%; }
+.col-1     { float: left; width: calc(((100% / 12) * 1) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-2     { float: left; width: calc(((100% / 12) * 2) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-3     { float: left; width: calc(((100% / 12) * 3) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-4     { float: left; width: calc(((100% / 12) * 4) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-5     { float: left; width: calc(((100% / 12) * 5) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-6     { float: left; width: calc(((100% / 12) * 6) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-7     { float: left; width: calc(((100% / 12) * 7) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-8     { float: left; width: calc(((100% / 12) * 8) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-9     { float: left; width: calc(((100% / 12) * 9) - 16px);  height: 100%; padding: 0px 8px 0px 8px; }
+.col-10    { float: left; width: calc(((100% / 12) * 10) - 16px); height: 100%; padding: 0px 8px 0px 8px; }
+.col-11    { float: left; width: calc(((100% / 12) * 11) - 16px); height: 100%; padding: 0px 8px 0px 8px; }
+.col-12    { float: left; width: calc(((100% / 12) * 12) - 16px); height: 100%; padding: 0px 8px 0px 8px; }
+
+.container { background: #202020; color: white;}
+h1, h2, h3 { color: orange; }
+
+/** positional layout */
+#header  { font-family: neuropol; height: 64px; }
+#content { height: calc(100% - 72px); }
+#menu    { height: 100%;  }
+#left    { height: 100%;  }
+#right   { height: 100%;  }
+#footer  { height: 8px;  }
+
+/** controls */
+#uniform-editor         { font-family: neuropol; width: 100%; height: 240px; }
+#uniform-editor h3      { height: 32px; line-height: 32px; }
+#uniform-editor .editor { height: calc(100% - 32px); }
+
+#shader-editor          { font-family: neuropol; width:  100%; height: calc(100% - 240px); }
+#shader-editor h3       { height: 32px; line-height: 32px; }
+#shader-editor .editor  { height: calc(100% - 32px); }
+
+#shader-output          { font-family: neuropol; width:  100%; height: 100%; }
+#shader-output h3       { height: 32px; line-height: 32px; }
+#shader-output .canvas  { width:  100%;  height: calc(100% - 32px); border: dashed 1px white; }
