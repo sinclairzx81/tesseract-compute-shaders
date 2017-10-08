@@ -32,24 +32,30 @@ import {createContext} from "./gpu/index"
 import {resolve}       from "./script/index"
 import * as code       from "./code"
 
-
-const device         = new Device(document.querySelector("#shader-output  > .canvas") as HTMLCanvasElement)
+const errors         = document.querySelector("#shader-info  > .errors") as HTMLPreElement
+const canvas         = document.querySelector("#shader-output  > .canvas") as HTMLCanvasElement
+const device         = new Device(canvas as HTMLCanvasElement)
 const uniformEditor  = new Editor(document.querySelector("#uniform-editor > .editor") as HTMLElement, "javascript")
 const shaderEditor   = new Editor(document.querySelector("#shader-editor  > .editor") as HTMLElement, "glsl")
 
 let uniforms = () => ({})
 uniformEditor.change(code => {
-  uniforms = resolve(null, code)  
+  uniforms = resolve(device.getcontext(), code)  
 })
-
 
 shaderEditor.change(code => {
-  device.compile(code)
+  const error = device.compile(code)
+  if(error.length > 0) {
+    errors.innerHTML = error[0].split("ERROR:").join("<br /><br />")
+
+  } else {
+    errors.innerHTML = 'running'
+
+  }
 })
 
-uniformEditor.set(code.demo_javascript())
-shaderEditor.set (code.demo_shader())
-
+uniformEditor.set(code.water_demo_javascript())
+shaderEditor.set (code.water_demo_shader())
 const loop = () => {
   window.requestAnimationFrame(() => {
     try {

@@ -47,7 +47,7 @@ export class Device {
    * returns this devices gpgpu context.
    * @returns {Context}
    */
-  public getContext(): Context {
+  public getcontext(): Context {
     return this.context
   }
 
@@ -68,7 +68,7 @@ export class Device {
    * @param {string} code the tesseract code.
    * @returns {boolean}
    */
-  public compile(code: string): boolean {
+  public compile(code: string): string[] {
     this.reset()
     return this.setup(code)
   }
@@ -89,7 +89,7 @@ export class Device {
    * @param {string} code the code to set.
    * @returns {void}
    */
-  private setup(code: string): boolean {
+  private setup(code: string): string[] {
     try {
       this.canvas.width  = this.width ()
       this.canvas.height = this.height()
@@ -99,9 +99,9 @@ export class Device {
         this.outputs.push(output)
       }
       this.ready = true
-      return true
+      return []
     } catch( error ) {
-      return false
+      return [error.toString()]
     }
   }
   /**

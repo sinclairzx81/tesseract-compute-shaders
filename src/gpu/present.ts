@@ -71,7 +71,7 @@ export class Present implements Disposable {
       "out vec2 nc_present_uv;",
       "",
       "void main() {",
-      "  nc_present_uv  = nc_present_texcoord;",
+      "  nc_present_uv  = vec2(nc_present_texcoord.x, (-nc_present_texcoord.y) + 1.0);", // flipped
       "",
       "  gl_Position = vec4 (",
       "    nc_present_position.x,",
